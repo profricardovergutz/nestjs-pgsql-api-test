@@ -1,0 +1,33 @@
+GET http://localhost:3000/users/
+
+###
+
+GET http://localhost:3000/orders/5428d8c1-47b8-4d53-bc33-57fb2fd9a1e7
+
+###
+
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+    "email": "teste@teste",
+    "name": "teste",
+    "password": "teste",
+    "passwordConfirmation": "teste"
+}
+
+
+###
+
+
+PATCH http://localhost:3000/orders/14658ad3-6657-45d9-9747-3a9e3bd15b18
+Content-Type: application/json
+
+{
+        "amount": 111
+}
+
+###
+DELETE http://localhost:3000/orders/5428d8c1-47b8-4d53-bc33-57fb2fd9a1e7
+
+
