@@ -1,4 +1,4 @@
-import { EntityRepository, Repository } from 'typeorm';
+/*import { EntityRepository, Repository } from 'typeorm';
 import { CreateUserDto } from './create-user.dto';
 import { UserRole } from './user-roles.enum';
 import { User } from './user.entity';
@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 
 
+@EntityRepository(User)
 export class UserRepository extends Repository<User> {
   async createUser(
     createUserDto: CreateUserDto,
@@ -46,3 +47,4 @@ export class UserRepository extends Repository<User> {
     return bcrypt.hash(password, salt);
   }
 }
+*/
