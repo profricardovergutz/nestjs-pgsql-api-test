@@ -13,6 +13,18 @@ services:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pgpassword
 
+  mysql:
+    image: mysql:oracle
+    ports:
+      - "3306:3036"
+    environment:
+      MYSQL_ROOT_PASSWORD: RootPassword
+      MYSQL_DATABASE: Backoffice
+      MYSQL_USER: MainUser
+      MYSQL_PASSWORD: MainPassword
+    volumes:
+      - mysql-data:/var/lib/mysql
+
   adminer:
     image: adminer
     restart: always
@@ -21,3 +33,4 @@ services:
 
 volumes:
   pg-data:
+  mysql-data:
