@@ -6,6 +6,7 @@ import { UserRole } from './user-roles.enum';
 import { User } from './user.entity';
 import * as crypto from 'crypto';
 import * as bcrypt from 'bcrypt';
+import { ReturnUserDto } from './return-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -32,15 +33,9 @@ export class UsersService {
     user.email = email;
     user.name = name;
     user.role = role;
-    user.status = true;
-    user.confirmationToken = crypto.randomBytes(32).toString('hex');
-    user.salt = await bcrypt.genSalt();
-    user.password = await this.hasPassword(password, user.salt);
 
     try {
       await user.save();
-      delete user.password;
-      delete user.salt;
       return user;
     } catch (error) {
       if (error.code.toString() === '23505') {
@@ -53,7 +48,13 @@ export class UsersService {
     }
   }
 
+  public async findAll(): Promise<User[]> {
+    const users: User[] = await this.userRepository.find();
+    return users;
+  }
+
   private async hasPassword(password: string, salt: string): Promise<string> {
     return bcrypt.hash(password, salt);
   }
+
 }

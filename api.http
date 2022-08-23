@@ -1,8 +1,8 @@
-GET http://localhost:3000/users/
+GET http://localhost:3000/users
 
 ###
 
-GET http://localhost:3000/orders/5428d8c1-47b8-4d53-bc33-57fb2fd9a1e7
+GET http://localhost:3000/users/1
 
 ###
 
@@ -10,7 +10,7 @@ POST http://localhost:3000/users/
 Content-Type: application/json
 
 {
-    "email": "teste@teste",
+    "email": "teste@teste12",
     "name": "teste",
     "password": "teste",
     "passwordConfirmation": "teste"
